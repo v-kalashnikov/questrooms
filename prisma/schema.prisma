@@ -1,0 +1,39 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") 
+  directUrl = env("POSTGRES_URL_NON_POOLING") 
+}
+
+model Quest {
+  id            Int      @id @default(autoincrement())
+  title         String
+  description   String
+  previewImg    String
+  coverImg      String
+  type          String
+  level         String
+  peopleCount   Int[]
+  duration      Int
+}
+
+model Order {
+  id          Int      @id @default(autoincrement())
+  name        String
+  peopleCount Int
+  phone       String
+  isLegal     Boolean
+  scheduledAt DateTime @default(now())
+  status      String   @default("pending")
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  email    String   @unique
+  password String
+}
