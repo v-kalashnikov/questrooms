@@ -12,7 +12,7 @@ function LoginPage() {
       <div className="flex justify-start">
         <Link
           href="/sign-in"
-          className=" p-2 rounded-md font-semibold text-md underline text-brandOrange"
+          className=" p-2 rounded-md font-semibold text-md underline text-brandMagenta bg-opacity-25"
         >
           Ще не зареєстровані?
         </Link>

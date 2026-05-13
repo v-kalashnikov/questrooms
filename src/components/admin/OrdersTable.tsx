@@ -76,7 +76,7 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
 
   return (
     <div className="bg-white rounded-xl shadow-sm p-6 w-full">
-      <h2 className="text-2xl font-semibold mb-6">Заявки</h2>
+      <h2 className="text-2xl font-semibold mb-6 text-gray-800">Заявки</h2>
       {orderList.length === 0 ? (
         <p className="text-sm text-gray-600">Поки що немає заявок.</p>
       ) : (
@@ -139,7 +139,13 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
                         const res = await fetch(`/api/orders/${order.id}`, {
                           method: "PATCH",
                           headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify({ status: newStatus }),
+                          body: JSON.stringify({
+                            name: order.name,
+                            phone: order.phone,
+                            peopleCount: order.peopleCount,
+                            isLegal: order.isLegal,
+                            status: newStatus,
+                          }),
                         });
                         if (res.ok) {
                           setOrderList((prev) =>
@@ -159,7 +165,7 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
                   <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">
                     <button
                       type="button"
-                      className="text-brandOrange underline"
+                      className="text-brandMagenta underline"
                       onClick={() => startEditing(order)}
                     >
                       Редагувати
@@ -247,7 +253,7 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
             <div className="flex gap-3">
               <button
                 type="button"
-                className="rounded bg-brandOrange px-5 py-3 text-white"
+                className="rounded bg-brandMagenta px-5 py-3 text-white"
                 onClick={saveOrder}
               >
                 Зберегти

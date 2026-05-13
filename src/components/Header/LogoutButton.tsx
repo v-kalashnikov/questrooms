@@ -15,7 +15,7 @@ function LogoutButton() {
 
   return (
     <button
-      className="inline-flex items-center justify-center rounded-md bg-gray-300/20 px-4 py-2 text-md font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+      className="inline-flex bg-brandMagenta bg-opacity-25 items-center justify-center rounded-md px-4 py-2 text-md font-medium text-white hover:bg-brandMagenta bg-opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
       onClick={handleLogout}
     >
       <span>{t("logout")}</span>

@@ -13,7 +13,7 @@ export async function PATCH(
   const body = await request.json();
   const { name, peopleCount, phone, isLegal, scheduledAt, status } = body;
 
-  if (![name, peopleCount, phone, scheduledAt].every(Boolean)) {
+  if (![name, peopleCount, phone].every(Boolean)) {
     return NextResponse.json(
       { message: "Введіть дані у всі поля" },
       { status: 400 }
@@ -27,8 +27,8 @@ export async function PATCH(
       peopleCount,
       phone,
       isLegal,
-      scheduledAt: new Date(scheduledAt),
       status,
+      ...(scheduledAt && { scheduledAt: new Date(scheduledAt) }),
     },
   });
 

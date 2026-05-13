@@ -20,7 +20,7 @@ export default async function Home({
           </p>
           <Link
             href="/quests"
-            className="bg-brandOrange rounded-md p-2 text-center text-2xl font-bold flex items-center justify-center gap-2 hover:bg-amber-500 transition-colors"
+            className="bg-brandMagenta bg-opacity-25 rounded-md p-2 text-center text-2xl font-bold flex items-center justify-center gap-2 hover:bg-brandMagenta bg-opacity-75 transition-colors"
           >
             <span className="inline-block">{t("actionButtonText")}</span>
             <ArrowRight />

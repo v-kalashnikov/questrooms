@@ -12,7 +12,7 @@ async function QuestInfo({ quest }: { quest: Quest }) {
 
   return (
     <div>
-      <p className="text-brandOrange font-medium text-sm">
+      <p className="text-brandMagenta bg-opacity-25 font-medium text-sm">
         {translations.types[type]}
       </p>
       <h2 className="mt-2 mb-8 font-black text-white text-8xl uppercase">

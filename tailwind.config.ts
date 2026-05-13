@@ -9,7 +9,7 @@
 //   theme: {
 //     colors: {
 //       ...colors,
-//       brandOrange: "#F2890F",
+//       brandMagenta: "#F2890F",
 //       white: "#ffffff",
 //       textWhite: "#E6E6E6",
 //       backgroundPrimary: "#1C1C1C",
@@ -43,7 +43,7 @@ module.exports = {
     },
     colors: {
       ...colors,
-      brandOrange: "#F2890F",
+      brandMagenta: "#FF1780",
       white: "#ffffff",
       textWhite: "#E6E6E6",
       backgroundPrimary: "#1C1C1C",

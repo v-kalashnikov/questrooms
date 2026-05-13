@@ -30,14 +30,17 @@ async function Header({ locale }: HeaderProps) {
       <header className="pt-6 flex bg-transparent absolute z-20 w-full mx-auto">
         <div className="container justify-between mx-auto flex items-center gap-3 w-full">
           <div>
-            <Link href="/">
+            <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/icons/logo.png"
+                src="/icons/logo.svg"
                 alt="Logo"
                 width={0}
                 height={0}
-                className="w-[134px] h-auto"
+                className="max-w-[100px] min-w-[60px] h-auto"
               />
+              <span className="text-white font-semibold text-lg">
+                Quest Rooms
+              </span>
             </Link>
           </div>
           <HeaderLinksList locale={locale} />

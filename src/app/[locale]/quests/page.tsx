@@ -8,7 +8,7 @@ export default async function QuestsPage() {
   return (
     <div className="flex gap-2">
       <Suspense fallback={<SkeletonList />}>
-        <QuestCardList />
+        <div><QuestCardList /></div>
       </Suspense>
     </div>
   );

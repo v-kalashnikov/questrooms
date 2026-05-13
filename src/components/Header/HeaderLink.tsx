@@ -18,8 +18,8 @@ function HeaderLink({
     <Link
       href={`/${linkName.toLowerCase()}`}
       className={`
-        font-semibold text-sm hover:text-brandOrange uppercase
-        ${isActive ? "font-medium text-brandOrange" : "text-textWhite"}
+        font-semibold text-sm hover:text-brandMagenta bg-opacity-75 uppercase
+        ${isActive ? "font-medium text-brandMagenta bg-opacity-45" : "text-textWhite"}
       `}
     >
       {children}

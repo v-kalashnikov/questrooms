@@ -1,7 +1,7 @@
 import React from "react";
 
 import Link from "next/link";
-import { Instagram, Twitter, Youtube } from "react-feather";
+import { Instagram} from "react-feather";
 
 const Footer = () => {
   return (
@@ -9,21 +9,9 @@ const Footer = () => {
       <div className="container flex mx-auto gap-5">
         <Link
           href={"https://www.instagram.com/"}
-          className="p-2 bg-[#C6C4C2] rounded-full"
+          className="p-2 bg-[#C6C4C2] text-brandMagenta rounded-full"
         >
           <Instagram className="bg-transparent" />
-        </Link>
-        <Link
-          href={"https://www.twitter.com/"}
-          className="p-2 bg-[#C6C4C2] rounded-full"
-        >
-          <Twitter className="bg-transparent" />
-        </Link>
-        <Link
-          href={"https://www.youtube.com/"}
-          className="p-2 bg-[#C6C4C2] rounded-full"
-        >
-          <Youtube className="bg-transparent" />
         </Link>
       </div>
     </footer>

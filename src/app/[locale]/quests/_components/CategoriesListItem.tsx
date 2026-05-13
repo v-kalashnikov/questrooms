@@ -30,8 +30,8 @@ function CategoriesListItem({ label, type, icon }: CategoriesListItemProps) {
           style={{ width: "auto", height: "30px" }}
         />
         <span
-          className={`text-textWhite text-sm hover:text-brandOrange font-bold  ${
-            isActive ? "border-b-[2px] border-brandOrange" : "border-none"
+          className={`text-textWhite text-sm hover:bg-brandMagenta bg-opacity-75 font-bold  ${
+            isActive ? "border-b-[2px] border-brandMagenta bg-opacity-25" : "border-none"
           }`}
         >
           {label}

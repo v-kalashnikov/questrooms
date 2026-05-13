@@ -59,7 +59,7 @@ export default async function DetailedQuestPage({
             <QuestInfo quest={quest} />
             <Link
               href={`${id}?show=true`}
-              className="uppercase bg-brandOrange py-[22px] px-12 text-white text-lg font-bold rounded-full ml-[30px] block text-center mt-10 w-[250px]"
+              className="uppercase bg-brandMagenta bg-opacity-25 py-[22px] px-12 text-white text-lg font-bold rounded-full ml-[30px] block text-center mt-10 w-[250px] hover:bg-brandMagenta bg-opacity-75 transition-colors"
             >
               Забронювати
             </Link>

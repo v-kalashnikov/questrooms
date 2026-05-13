@@ -42,7 +42,7 @@ export default function LanguageChanger() {
   return (
     <Listbox value={currentLocale} onChange={handleChange}>
       <div className="relative">
-        <Listbox.Button className="inline-flex items-center justify-start rounded-md bg-gray-300/20 px-4 py-2 text-md font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
+        <Listbox.Button className="inline-flex items-center justify-start rounded-md bg-brandMagenta bg-opacity-25 px-4 py-2 text-md font-medium text-white hover:bg-brandMagenta bg-opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
           <span className="block truncate">{currentLocale}</span>
           {/* <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"> */}
           <span className="pointer-events-none flex items-center">
@@ -67,7 +67,7 @@ export default function LanguageChanger() {
                 key={lang}
                 className={({ active }) =>
                   `${
-                    active ? "bg-brandOrange text-white" : "text-gray-900"
+                    active ? "bg-brandMagenta text-white" : "text-gray-900"
                   } group flex w-full items-center rounded-md px-2 py-2 text-sm cursor-pointer`
                 }
                 value={lang}

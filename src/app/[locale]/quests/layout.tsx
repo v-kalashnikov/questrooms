@@ -11,12 +11,11 @@ export default async function RootLayout({
 }>) {
   const { t } = await initTranslations(locale, ["questsPage"]);
   return (
-    <div className="container mx-auto mt-12 pt-[74px]">
-      <span className="text-brandOrange font-medium">{t("questsInTernopil")}</span>
+    <div className="container mx-auto mt-12 pt-[74px] flex flex-col gap-3 ">
       <h2 className="text-6xl text-textWhite font-extrabold mt-1">
         {t("chooseCategoryHeading")}
       </h2>
-      <div className="my-12">
+      <div className="mt-12 mb-16 space-y-10 flex flex-col w-auto h-auto">
         <CategoriesList locale={locale} />
         {children}
       </div>

@@ -11,7 +11,7 @@ export default function Error({
     <div className="pt-[74px] mx-auto h-screen flex justify-center items-center">
       <div className="flex flex-col gap-2">
         <h2>Something went wrong!</h2>
-        <button onClick={() => reset()} className="bg-brandOrange p-2">
+        <button onClick={() => reset()} className="bg-brandMagenta bg-opacity-25 p-2">
           Try again
         </button>
       </div>

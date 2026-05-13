@@ -10,9 +10,12 @@ import { handleFormError } from "@/lib/utils/handleFormError";
 import { formInitialState } from "@/constants/formInitialState";
 import SubmitButton from "@/components/ui/SubmitButton";
 import FormInput from "@/components/ui/FormInput";
+import { questImages } from "@/constants/questImages";
 
 function CreateQuestForm() {
   const [state, formAction] = useFormState(createQuest, formInitialState);
+  const [selectedType, setSelectedType] = useState<string>("");
+  const [selectedImage, setSelectedImage] = useState<string>("");
 
   const titleErrors = findErrors("title", state.message);
   const descriptionErrors = findErrors("description", state.message);
@@ -30,6 +33,8 @@ function CreateQuestForm() {
     return;
   }
 
+  const availableImages = selectedType ? questImages[selectedType] || [] : [];
+
   return (
     <form action={formAction} className="flex flex-col gap-8">
       {state?.success && <>{handleSuccess(state.message as string)}</>}
@@ -37,87 +42,101 @@ function CreateQuestForm() {
       <div>
         <FormInput
           inputId={"title"}
-          inputLabel={"Title"}
+          inputLabel={"Назва"}
           type={"text"}
           required={true}
-          placeholder={"Quest title"}
+          placeholder={"Назва квесту"}
         />
         <ErrorMessages errors={titleErrors} />
       </div>
       <div>
-        <label htmlFor="description">Description</label>
+        <label htmlFor="description">Опис</label>
         <textarea
           id="description"
           name="description"
           required
-          placeholder="Quest description"
-          className="border rounded p-2 w-full h-24"
+          placeholder="Опис квесту"
+          className="border rounded p-2 w-full h-24 bg-formsBackground"
         />
         <ErrorMessages errors={descriptionErrors} />
       </div>
       <div>
-        <FormInput
-          inputId={"previewImg"}
-          inputLabel={"Preview Image URL"}
-          type={"text"}
-          required={true}
-          placeholder={"Preview image URL"}
-        />
-        <ErrorMessages errors={previewImgErrors} />
-      </div>
-      <div>
-        <FormInput
-          inputId={"coverImg"}
-          inputLabel={"Cover Image URL"}
-          type={"text"}
-          required={true}
-          placeholder={"Cover image URL"}
-        />
-        <ErrorMessages errors={coverImgErrors} />
-      </div>
-      <div>
-        <FormInput
-          inputId={"type"}
-          inputLabel={"Type"}
-          type={"text"}
-          required={true}
-          placeholder={"Quest type"}
-        />
+        <label htmlFor="type">Тип</label>
+        <select
+          id="type"
+          name="type"
+          required
+          value={selectedType}
+          onChange={(e) => {
+            setSelectedType(e.target.value);
+            setSelectedImage(""); // Reset image when type changes
+          }}
+          className="border rounded p-2 w-full bg-formsBackground"
+        >
+          <option value="">Оберіть тип</option>
+          {Object.keys(questImages).map((type) => (
+            <option key={type} value={type}>
+              {type.charAt(0).toUpperCase() + type.slice(1)}
+            </option>
+          ))}
+        </select>
         <ErrorMessages errors={typeErrors} />
       </div>
       <div>
+        <label htmlFor="image">Картинка</label>
+        <select
+          id="image"
+          name="image"
+          required
+          value={selectedImage}
+          onChange={(e) => setSelectedImage(e.target.value)}
+          className="border rounded p-2 w-full bg-formsBackground"
+          disabled={!selectedType}
+        >
+          <option value="">Оберіть картинку</option>
+          {availableImages.map((image) => (
+            <option key={image} value={image}>
+              {image.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase())}
+            </option>
+          ))}
+        </select>
+        <ErrorMessages errors={previewImgErrors} />
+      </div>
+      <input type="hidden" name="previewImg" value={`preview-${selectedImage}.jpg`} />
+      <input type="hidden" name="coverImg" value={`cover-${selectedImage}.jpg`} />
+      <div>
         <FormInput
           inputId={"level"}
-          inputLabel={"Level"}
+          inputLabel={"Складність"}
           type={"text"}
           required={true}
-          placeholder={"Quest level"}
+          placeholder={"Складність"}
         />
         <ErrorMessages errors={levelErrors} />
       </div>
       <div>
-        <label htmlFor="peopleCount">People Count (comma separated)</label>
+        <label htmlFor="peopleCount">Кількість осіб (через кому мін. та макс.)</label>
         <input
           id="peopleCount"
           name="peopleCount"
           type="text"
           required
           placeholder="e.g., 2,4,6"
-          className="border rounded p-2"
+          className="border rounded p-2 bg-formsBackground"
         />
         <ErrorMessages errors={peopleCountErrors} />
       </div>
       <div>
         <FormInput
           inputId={"duration"}
-          inputLabel={"Duration (minutes)"}
+          inputLabel={"Тривалість (хвилини)"}
           type={"number"}
           required={true}
-          placeholder={"Duration"}
+          placeholder={"Тривалість"}
         />
         <ErrorMessages errors={durationErrors} />
       </div>
-      <SubmitButton text="Create Quest" />
+      <SubmitButton placeholder="Додати квест" />
     </form>
   );
 }

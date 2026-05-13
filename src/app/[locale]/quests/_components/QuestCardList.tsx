@@ -15,7 +15,7 @@ async function QuestCardList({ category = "all" }: QuestCardListProps) {
       : quests;
 
   return (
-    <div className="grid grid-cols-3 gap-x-6 gap-y-8 mt-10 mx-auto">
+    <div className="grid grid-cols-3 gap-x-6 gap-y-8 mx-auto">
       {filteredQuests.map((quest) => (
         <QuestCard
           key={quest.id}
