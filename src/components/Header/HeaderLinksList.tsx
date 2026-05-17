@@ -12,6 +12,7 @@ async function HeaderLinksList({ locale, isAdmin }: HeaderLinksListProps) {
   const { t } = await initTranslations(locale, ["navbar"]);
 
   const linksToShow = navLinks.filter(({ translateKey }) => {
+    console.log(translateKey, isAdmin);
     if (translateKey === "admin") {
       return isAdmin;
     }

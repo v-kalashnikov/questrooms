@@ -12,8 +12,8 @@ export default async function AdminPage() {
     <section className="container mx-auto py-[120px] px-12">
       <div className="space-y-12">
         <div>
-          <h1 className="text-4xl font-bold mb-4">Admin Panel</h1>
-          <p className="text-sm text-textWhite">Тут ви можете переглядати замовлення, керувати квестами та додавати нові.</p>
+          <h1 className="text-4xl font-bold mb-4">Панель адміністратора</h1>
+          <p className="text-sm text-textWhite">Тут можна переглядати замовлення, керувати квестами та додавати нові.</p>
         </div>
 
         <div className="space-y-12">

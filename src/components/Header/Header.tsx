@@ -45,9 +45,9 @@ async function Header({ locale }: HeaderProps) {
                 alt="Logo"
                 width={0}
                 height={0}
-                className="max-w-[100px] min-w-[60px] h-auto"
+                className="max-w-[60px] md:max-w-[100px] min-w-[50px] md:min-w-[60px] h-auto"
               />
-              <span className="text-white font-semibold text-lg">
+              <span className="hidden md:inline text-white font-semibold text-lg">
                 Quest Rooms
               </span>
             </Link>

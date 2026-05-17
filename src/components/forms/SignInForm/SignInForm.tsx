@@ -24,7 +24,6 @@ function SignInForm() {
   const passwordErrors = findErrors("password", state.message);
 
   useEffect(() => {
-    console.log("SignInForm state:", state);
     
     if (state && state.success === true) {
       if (!toastShownRef.current && typeof state.message === "string") {

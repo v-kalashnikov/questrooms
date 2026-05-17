@@ -9,7 +9,7 @@ type CategoriesListProps = {
 async function CategoriesList({ locale }: CategoriesListProps) {
   const { t } = await initTranslations(locale, ["questsPage"]);
   return (
-    <ul className="flex gap-2 items-center justify-center mx-auto">
+    <ul className="flex gap-2 items-center justify-center mx-auto flex-wrap">
       {categories.map(({ type, label, icon }) => (
         <CategoriesListItem
           key={type}
