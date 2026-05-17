@@ -9,6 +9,7 @@ import LogoutButton from "./LogoutButton";
 import TranslationsProvider from "../TranslationsProvider";
 import initTranslations from "@/app/i18n";
 import LanguageChanger from "./LanguageChanger";
+import db from "@/modules/db";
 
 type HeaderProps = {
   locale: string;
@@ -18,6 +19,14 @@ const i18nNamespaces = ["navbar"];
 
 async function Header({ locale }: HeaderProps) {
   const session = await verifySession();
+  let isAdmin = false;
+
+  if (session?.userId) {
+    const user = await db.user.findUnique({
+      where: { id: Number(session.userId) },
+    });
+    isAdmin = user?.email === "vl_kalashn1kov@proton.me";
+  }
 
   const { t, resources } = await initTranslations(locale, i18nNamespaces);
 
@@ -43,7 +52,7 @@ async function Header({ locale }: HeaderProps) {
               </span>
             </Link>
           </div>
-          <HeaderLinksList locale={locale} />
+          <HeaderLinksList locale={locale} isAdmin={isAdmin} />
           <div className="flex items-center gap-3 xl:gap-8 flex-wrap justify-center">
             {!session ? <AuthDropdown /> : <LogoutButton />}
             <LanguageChanger />

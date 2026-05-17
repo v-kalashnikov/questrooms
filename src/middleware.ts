@@ -3,7 +3,6 @@ import { updateSession } from "./lib/api/session";
 import { verifySession } from "./lib/api/session";
 import { i18nRouter } from "next-i18n-router";
 import { i18nConfig } from "./i18nConfig";
-import db from "./modules/db";
 
 const protectedRoutes = ["/admin"];
 const excludedRoutes = ["/sign-in", "/sign-up"];
@@ -22,11 +21,9 @@ export async function middleware(request: NextRequest) {
       i18nRouter(request, i18nConfig);
       return NextResponse.redirect(new URL("/sign-in", request.nextUrl));
     }
-    // Check if user is admin
-    const user = await db.user.findUnique({
-      where: { id: Number(session.userId) },
-    });
-    if (!user || user.email !== "vl_kalashn1kov@proton.me") {
+
+    // Check if user is admin by session email only (no Prisma in middleware)
+    if (!session.email || session.email !== "vl_kalashn1kov@proton.me") {
       i18nRouter(request, i18nConfig);
       return NextResponse.redirect(new URL("/", request.nextUrl));
     }

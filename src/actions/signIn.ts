@@ -2,6 +2,8 @@
 
 import { createSession } from "@/lib/api/session";
 import { z } from "zod";
+// 1. Імпортуємо утиліту для редіректу
+import { redirect } from "next/navigation";
 
 const schema = z.object({
   email: z.string().email({ message: "Please enter a valid email." }).trim(),
@@ -25,6 +27,7 @@ export async function signIn(prevState: any, formData: FormData) {
   }
 
   const data = parse.data;
+  let isRedirectNeeded = false; // Прапорець для успішного статусу
 
   try {
     const res = await fetch(`${process.env.API_BASE_URL}/api/auth/sign-in`, {
@@ -39,13 +42,17 @@ export async function signIn(prevState: any, formData: FormData) {
     }
 
     const user = await res.json();
-    await createSession(user.id);
+    await createSession(user.id, user.email);
 
-    return {
-      success: true,
-      message: `Ви успішно авторизувались!`,
-    };
+    // Якщо дійшли сюди — авторизація успішна
+    isRedirectNeeded = true; 
+
   } catch (e: any) {
     return { success: false, message: e.message };
+  }
+
+  // 2. Виконуємо редірект ПОЗА блоком try/catch
+  if (isRedirectNeeded) {
+    redirect("/uk/quests");
   }
 }

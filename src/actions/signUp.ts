@@ -44,7 +44,7 @@ export async function signUp(prevState: any, formData: FormData) {
     }
 
     const user = await res.json();
-    await createSession(user.id);
+    await createSession(user.id, data.email);
 
     return {
       success: true,

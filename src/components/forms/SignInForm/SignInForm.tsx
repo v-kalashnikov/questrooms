@@ -6,32 +6,41 @@ import SubmitButton from "@/components/ui/SubmitButton";
 import { findErrors } from "@/lib/utils/findErrors";
 import ErrorMessages from "@/components/ui/ErrorMessages";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { handleFormError } from "@/lib/utils/handleFormError";
 import { signIn } from "@/actions/signIn";
 import { formInitialState } from "@/constants/formInitialState";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 function SignInForm() {
   const [state, formAction] = useFormState(signIn, formInitialState);
   const toastShownRef = useRef(false);
 
   const router = useRouter();
+  const params = useParams();
+  const locale = params?.locale ?? "uk";
 
   const emailErrors = findErrors("email", state.message);
   const passwordErrors = findErrors("password", state.message);
 
-  function handleSuccess(message: string) {
-    if (!toastShownRef.current) {
-      toast.success(message);
-      toastShownRef.current = true;
+  useEffect(() => {
+    console.log("SignInForm state:", state);
+    
+    if (state && state.success === true) {
+      if (!toastShownRef.current && typeof state.message === "string") {
+        toast.success(state.message);
+        toastShownRef.current = true;
+      }
+      
+      setTimeout(() => {
+        const target = `/${locale}/quests`;
+        window.location.href = target;
+      }, 500);
     }
-    router.push("/");
-  }
+  }, [state, locale]);
 
   return (
     <form action={formAction}>
-      {state?.success && <>{handleSuccess(state.message)}</>}
       {state.success === false && <>{handleFormError(state.message)}</>}
       <h3 className="font-bold text-xl mb-2 text-center">Увійти в акаунт</h3>
       <div className="flex flex-col gap-8 mb-14">
@@ -56,7 +65,7 @@ function SignInForm() {
           <ErrorMessages errors={passwordErrors} />
         </div>
       </div>
-      <SubmitButton placeholder="Увійти" />
+      <SubmitButton placeholder="Увійти" className="flex flex-col gap-8 mb-14 hover:text-brandMagenta bg-opacity-75" />
       <p aria-live="polite" className="sr-only" role="status">
         {state.message === "string" ? state.message : ""}
       </p>

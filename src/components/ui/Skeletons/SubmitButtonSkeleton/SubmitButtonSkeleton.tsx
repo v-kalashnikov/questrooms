@@ -3,7 +3,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 function SubmitButtonSkeleton() {
   return (
-    <SkeletonTheme baseColor="#f2890f" highlightColor="#fff0ac">
+    <SkeletonTheme baseColor="#FF1780" highlightColor="#ef59bd">
       <p>
         <Skeleton
           width={200}

@@ -31,9 +31,9 @@ export async function verifySession() {
   return await decrypt(session);
 }
 
-export async function createSession(userId: string) {
-  const expiresAt = new Date(Date.now() +  24 * 60 * 60 * 1000);
-  const session = await encrypt({ userId, expiresAt });
+export async function createSession(userId: string, email?: string) {
+  const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
+  const session = await encrypt({ userId, email, expiresAt });
 
   cookies().set("session", session, {
     httpOnly: true,
@@ -51,14 +51,21 @@ export async function updateSession(request: NextRequest) {
   }
 
   const currentTime = Date.now();
-  if (payload.expires <= currentTime) {
-    payload.expires = new Date(currentTime + 24 * 60 * 60 * 1000);
+  const expiresAt = payload.expiresAt
+    ? typeof payload.expiresAt === "string"
+      ? new Date(payload.expiresAt)
+      : payload.expiresAt
+    : null;
+
+  if (expiresAt && expiresAt.getTime() <= currentTime) {
+    const newExpiresAt = new Date(currentTime + 24 * 60 * 60 * 1000);
+    payload.expiresAt = newExpiresAt;
     const res = NextResponse.next();
     res.cookies.set({
       name: "session",
       value: await encrypt(payload),
       httpOnly: true,
-      expires: payload.expires,
+      expires: newExpiresAt,
     });
     return res;
   }

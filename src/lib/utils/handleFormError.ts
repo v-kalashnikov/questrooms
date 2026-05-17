@@ -4,10 +4,10 @@ import { ZodIssue } from "zod";
 
 export function handleFormError(
   message: string | ZodIssue[],
-  toastShownRef?: React.Ref<boolean>
+  toastShownRef?: RefObject<boolean> | null
 ) {
   if (typeof message === "string" && message) {
-    if (!(toastShownRef as RefObject<boolean>).current) {
+    if (!toastShownRef?.current) {
       toast.error(message);
     }
   }

@@ -13,14 +13,24 @@ export default async function AdminPage() {
       <div className="space-y-12">
         <div>
           <h1 className="text-4xl font-bold mb-4">Admin Panel</h1>
-          <p className="text-sm text-gray-600">Тут можна додавати квести, редагувати їх і переглядати заявки.</p>
+          <p className="text-sm text-gray-600">Тут ви можете переглядати замовлення, керувати квестами та додавати нові.</p>
         </div>
-        <div className="grid grid-cols-1 xl:grid-cols-[1fr_560px] gap-12">
-          <div className="space-y-8">
-            <CreateQuestForm />
+
+        <div className="space-y-12">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold">Замовлення</h2>
+            <OrdersTable orders={orders} />
+          </div>
+
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold">Існуючі квести</h2>
             <QuestsTable quests={quests} />
           </div>
-          <OrdersTable orders={orders} />
+
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold">Додати новий квест</h2>
+            <CreateQuestForm />
+          </div>
         </div>
       </div>
     </section>
