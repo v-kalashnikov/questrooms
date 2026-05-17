@@ -51,7 +51,7 @@ export default async function DetailedQuestPage({
         style={{
           backgroundImage: `linear-gradient(
           rgba(0, 0, 0, 0.6),
-          rgba(0, 0, 0, 0.3)), url(/${coverImg})`,
+          rgba(0, 0, 0, 0.3)), url(/img/${coverImg})`,
         }}
       >
         <div className="container mx-auto flex justify-end ">

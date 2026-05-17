@@ -20,11 +20,11 @@ function QuestCard({
   return (
     <Link href={`/detailed-quest/${id}`} className="relative">
       <Image
-        src={`/${previewImg}`}
+        src={`/img/${previewImg}`}
         alt="Quest image"
-        width={344}
-        height={232}
-        className="w-full h-full object-cover rounded-lg"
+        width={500}
+        height={350}
+        className="h-full object-cover rounded-lg"
       />
       <div className="absolute p-4 inset-x-0 bottom-0 backdrop-blur-sm rounded-lg border-0">
         <h3 className="text-textWhite text-2xl font-bold">{title}</h3>
