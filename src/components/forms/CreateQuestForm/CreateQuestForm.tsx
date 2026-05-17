@@ -115,14 +115,14 @@ function CreateQuestForm() {
         <ErrorMessages errors={levelErrors} />
       </div>
       <div>
-        <label htmlFor="peopleCount">Кількість осіб (через кому мін. та макс.)</label>
+        <label htmlFor="peopleCount" className="text-textWhite">Кількість осіб (через кому мін. та макс.)</label>
         <input
           id="peopleCount"
           name="peopleCount"
           type="text"
           required
           placeholder="e.g., 2,4,6"
-          className="border rounded p-2 bg-formsBackground"
+          className="border border-[rgb(72_0_66)] rounded p-2 bg-formsBackground w-full text-gray-300 placeholder-gray-500"
         />
         <ErrorMessages errors={peopleCountErrors} />
       </div>

@@ -201,11 +201,11 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
                 onChange={(event) =>
                   setEditedOrder({ ...editedOrder, phone: event.target.value })
                 }
-                className="w-full border rounded px-4 py-3"
+                className="w-full border border-[rgb(72_0_66)] rounded px-4 py-3 bg-formsBackground text-gray-300"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Кількість</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">Кількість</label>
               <input
                 type="number"
                 min={1}
@@ -216,11 +216,11 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
                     peopleCount: Number(event.target.value),
                   })
                 }
-                className="w-full border rounded px-4 py-3"
+                className="w-full border border-[rgb(72_0_66)] rounded px-4 py-3 bg-formsBackground text-gray-300"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Дата та час</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">Дата та час</label>
               <input
                 type="datetime-local"
                 value={editedOrder.scheduledAt}
@@ -230,11 +230,11 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
                     scheduledAt: event.target.value,
                   })
                 }
-                className="w-full border rounded px-4 py-3"
+                className="w-full border border-[rgb(72_0_66)] rounded px-4 py-3 bg-formsBackground text-gray-300"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Стан</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">Стан</label>
               <select
                 value={editedOrder.status}
                 onChange={(event) =>
@@ -243,7 +243,7 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
                     status: event.target.value,
                   })
                 }
-                className="w-full border rounded px-4 py-3"
+                className="w-full border border-[rgb(72_0_66)] rounded px-4 py-3 bg-formsBackground text-gray-300"
               >
                 <option value="pending">Очікує</option>
                 <option value="confirmed">Підтверджено</option>
@@ -260,7 +260,7 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
               </button>
               <button
                 type="button"
-                className="rounded border border-gray-300 px-5 py-3"
+                className="rounded border border-[rgb(72_0_66)] px-5 py-3 text-gray-300 hover:bg-opacity-50"
                 onClick={cancelEditing}
               >
                 Скасувати

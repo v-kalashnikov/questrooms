@@ -68,7 +68,7 @@ function CreateOrderForm() {
           <ErrorMessages errors={peopleCountErrors} />
         </div>
         <div>
-          <label htmlFor="scheduledAt" className="block mb-2 text-sm font-medium">
+          <label htmlFor="scheduledAt" className="block mb-2 text-sm font-medium text-textWhite">
             Дата та час
           </label>
           <input
@@ -76,7 +76,7 @@ function CreateOrderForm() {
             name="scheduledAt"
             type="datetime-local"
             required
-            className="py-4 px-6 bg-formsBackground border border-[#E6E6E6] w-full"
+            className="py-4 px-6 bg-formsBackground border border-[rgb(72_0_66)] w-full text-gray-300"
           />
           <ErrorMessages errors={scheduledAtErrors} />
         </div>

@@ -144,14 +144,14 @@ export default function QuestsTable({ quests }: QuestsTableProps) {
                   <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300 space-x-3">
                     <button
                       type="button"
-                      className="text-brandMagenta underline"
+                      className="text-white underline"
                       onClick={() => startEditing(quest)}
                     >
                       Редагувати
                     </button>
                     <button
                       type="button"
-                      className="text-red-600 underline"
+                      className="text-brandMagenta underline"
                       onClick={() => deleteQuest(quest.id)}
                     >
                       Видалити
@@ -203,7 +203,7 @@ export default function QuestsTable({ quests }: QuestsTableProps) {
                     setSelectedImage("");
                   }
                 }}
-                className="w-full border rounded px-4 py-3 bg-white"
+                className="w-full border border-[rgb(72_0_66)] rounded px-4 py-3 bg-formsBackground text-gray-300"
               >
                 <option value="">Оберіть тип</option>
                 {Object.keys(questImages).map((type) => (
@@ -214,7 +214,7 @@ export default function QuestsTable({ quests }: QuestsTableProps) {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Картинка</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">Картинка</label>
               <select
                 value={selectedImage}
                 onChange={(event) => {
@@ -229,7 +229,7 @@ export default function QuestsTable({ quests }: QuestsTableProps) {
                   }
                 }}
                 disabled={!selectedType}
-                className="w-full border rounded px-4 py-3 bg-white"
+                className="w-full border border-[rgb(72_0_66)] rounded px-4 py-3 bg-formsBackground text-gray-300 disabled:opacity-50"
               >
                 <option value="">Оберіть картинку</option>
                 {availableImages.map((image) => (
@@ -240,29 +240,29 @@ export default function QuestsTable({ quests }: QuestsTableProps) {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Рівень</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">Рівень</label>
               <input
                 type="text"
                 value={editedQuest.level}
                 onChange={(event) =>
                   setEditedQuest({ ...editedQuest, level: event.target.value })
                 }
-                className="w-full border rounded px-4 py-3"
+                className="w-full border border-[rgb(72_0_66)] rounded px-4 py-3 bg-formsBackground text-gray-300"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Кількість осіб</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">Кількість осіб</label>
               <input
                 type="text"
                 value={editedQuest.peopleCount}
                 onChange={(event) =>
                   setEditedQuest({ ...editedQuest, peopleCount: event.target.value })
                 }
-                className="w-full border rounded px-4 py-3"
+                className="w-full border border-[rgb(72_0_66)] rounded px-4 py-3 bg-formsBackground text-gray-300"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Тривалість (хвилини)</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">Тривалість (хвилини)</label>
               <input
                 type="number"
                 min={1}
@@ -273,7 +273,7 @@ export default function QuestsTable({ quests }: QuestsTableProps) {
                     duration: Number(event.target.value),
                   })
                 }
-                className="w-full border rounded px-4 py-3"
+                className="w-full border border-[rgb(72_0_66)] rounded px-4 py-3 bg-formsBackground text-gray-300"
               />
             </div>
             <div className="flex gap-3">
@@ -286,7 +286,7 @@ export default function QuestsTable({ quests }: QuestsTableProps) {
               </button>
               <button
                 type="button"
-                className="rounded border border-gray-300 px-5 py-3"
+                className="rounded border border-[rgb(72_0_66)] px-5 py-3 text-gray-300 hover:bg-opacity-50"
                 onClick={cancelEditing}
               >
                 Скасувати
