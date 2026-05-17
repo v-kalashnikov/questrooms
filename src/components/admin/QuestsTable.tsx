@@ -114,34 +114,34 @@ export default function QuestsTable({ quests }: QuestsTableProps) {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6 w-full">
-      <h2 className="text-2xl font-semibold mb-6 text-gray-800">Квести</h2>
+    <div className="bg-formsBackground rounded-xl shadow-sm p-6 w-full border border-[rgb(72_0_66)]">
+      <h2 className="text-2xl font-semibold mb-6 text-textWhite">Квести</h2>
       {questList.length === 0 ? (
-        <p className="text-sm text-gray-600">Поки що немає квестів.</p>
+        <p className="text-sm text-gray-400">Поки що немає квестів.</p>
       ) : (
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+          <table className="min-w-full divide-y divide-[rgb(72_0_66)]">
+            <thead className="bg-opacity-50">
               <tr>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">ID</th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">Назва</th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">Тип</th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">Рівень</th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">Люди</th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">Тривалість</th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">Дії</th>
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">ID</th>
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">Назва</th>
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">Тип</th>
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">Рівень</th>
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">Люди</th>
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">Тривалість</th>
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">Дії</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-formsBackground divide-y divide-[rgb(72_0_66)]">
               {questList.map((quest) => (
                 <tr key={quest.id}>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">{quest.id}</td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">{quest.title}</td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">{quest.type}</td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">{quest.level}</td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">{quest.peopleCount.join(", ")}</td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">{quest.duration} хв</td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700 space-x-3">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">{quest.id}</td>
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">{quest.title}</td>
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">{quest.type}</td>
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">{quest.level}</td>
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">{quest.peopleCount.join(", ")}</td>
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">{quest.duration} хв</td>
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300 space-x-3">
                     <button
                       type="button"
                       className="text-brandMagenta underline"
@@ -165,32 +165,32 @@ export default function QuestsTable({ quests }: QuestsTableProps) {
       )}
 
       {editingId && editedQuest && (
-        <div className="mt-6 border-t pt-6">
-          <h3 className="text-xl font-semibold mb-4">Редагувати квест #{editingId}</h3>
+        <div className="mt-6 border-t border-[rgb(72_0_66)] pt-6">
+          <h3 className="text-xl font-semibold mb-4 text-textWhite">Редагувати квест #{editingId}</h3>
           <div className="grid gap-4">
             <div>
-              <label className="block text-sm font-medium mb-2">Назва</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">Назва</label>
               <input
                 type="text"
                 value={editedQuest.title}
                 onChange={(event) =>
                   setEditedQuest({ ...editedQuest, title: event.target.value })
                 }
-                className="w-full border rounded px-4 py-3"
+                className="w-full border border-[rgb(72_0_66)] rounded px-4 py-3 bg-formsBackground text-gray-300"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Опис</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">Опис</label>
               <textarea
                 value={editedQuest.description}
                 onChange={(event) =>
                   setEditedQuest({ ...editedQuest, description: event.target.value })
                 }
-                className="w-full border rounded px-4 py-3 h-28"
+                className="w-full border border-[rgb(72_0_66)] rounded px-4 py-3 h-28 bg-formsBackground text-gray-300"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Тип</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">Тип</label>
               <select
                 value={selectedType}
                 onChange={(event) => {

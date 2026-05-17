@@ -50,18 +50,18 @@ function CreateQuestForm() {
         <ErrorMessages errors={titleErrors} />
       </div>
       <div>
-        <label htmlFor="description">Опис</label>
+        <label htmlFor="description" className="text-textWhite">Опис</label>
         <textarea
           id="description"
           name="description"
           required
           placeholder="Опис квесту"
-          className="border rounded p-2 w-full h-24 bg-formsBackground"
+          className="border border-[rgb(72_0_66)] rounded p-2 w-full h-24 bg-formsBackground text-gray-300 placeholder-gray-500"
         />
         <ErrorMessages errors={descriptionErrors} />
       </div>
       <div>
-        <label htmlFor="type">Тип</label>
+        <label htmlFor="type" className="text-textWhite">Тип</label>
         <select
           id="type"
           name="type"
@@ -71,11 +71,11 @@ function CreateQuestForm() {
             setSelectedType(e.target.value);
             setSelectedImage(""); // Reset image when type changes
           }}
-          className="border rounded p-2 w-full bg-formsBackground"
+          className="border border-[rgb(72_0_66)] rounded p-2 w-full bg-formsBackground text-gray-300"
         >
-          <option value="">Оберіть тип</option>
+          <option value="" className="bg-formsBackground">Оберіть тип</option>
           {Object.keys(questImages).map((type) => (
-            <option key={type} value={type}>
+            <option key={type} value={type} className="bg-formsBackground">
               {type.charAt(0).toUpperCase() + type.slice(1)}
             </option>
           ))}
@@ -83,14 +83,14 @@ function CreateQuestForm() {
         <ErrorMessages errors={typeErrors} />
       </div>
       <div>
-        <label htmlFor="image">Картинка</label>
+        <label htmlFor="image" className="text-textWhite">Картинка</label>
         <select
           id="image"
           name="image"
           required
           value={selectedImage}
           onChange={(e) => setSelectedImage(e.target.value)}
-          className="border rounded p-2 w-full bg-formsBackground"
+          className="border border-[rgb(72_0_66)] rounded p-2 w-full bg-formsBackground text-gray-300"
           disabled={!selectedType}
         >
           <option value="">Оберіть картинку</option>

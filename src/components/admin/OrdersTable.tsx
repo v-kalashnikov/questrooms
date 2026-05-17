@@ -75,54 +75,54 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6 w-full">
-      <h2 className="text-2xl font-semibold mb-6 text-gray-800">Заявки</h2>
+    <div className="bg-formsBackground rounded-xl shadow-sm p-6 w-full border border-[rgb(72_0_66)]">
+      <h2 className="text-2xl font-semibold mb-6 text-textWhite">Заявки</h2>
       {orderList.length === 0 ? (
-        <p className="text-sm text-gray-600">Поки що немає заявок.</p>
+        <p className="text-sm text-gray-400">Поки що немає заявок.</p>
       ) : (
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+          <table className="min-w-full divide-y divide-[rgb(72_0_66)]">
+            <thead className="bg-opacity-50">
               <tr>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">
                   ID
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">
                   Ім'я
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">
                   Телефон
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">
                   Кількість
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">
                   Дата/час
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">
                   Стан
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">
                   Дія
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-formsBackground divide-y divide-[rgb(72_0_66)]">
               {orderList.map((order) => (
                 <tr key={order.id}>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">
                     {order.id}
                   </td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">
                     {order.name}
                   </td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">
                     {order.phone}
                   </td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">
                     {order.peopleCount}
                   </td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">
                     {new Date(order.scheduledAt).toLocaleString("uk-UA", {
                       year: "numeric",
                       month: "2-digit",
@@ -131,7 +131,7 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
                       minute: "2-digit",
                     })}
                   </td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">
                     <select
                       value={order.status}
                       onChange={async (event) => {
@@ -155,14 +155,14 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
                           );
                         }
                       }}
-                      className="border rounded px-2 py-1 text-sm"
+                      className="border border-[rgb(72_0_66)] rounded px-2 py-1 text-sm bg-formsBackground text-gray-300"
                     >
                       <option value="pending">Очікує</option>
                       <option value="confirmed">Підтверджено</option>
                       <option value="cancelled">Скасовано</option>
                     </select>
                   </td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-700">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">
                     <button
                       type="button"
                       className="text-brandMagenta underline"
@@ -179,22 +179,22 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
       )}
 
       {editingId && editedOrder && (
-        <div className="mt-6 border-t pt-6">
-          <h3 className="text-xl font-semibold mb-4">Редагувати заявку #{editingId}</h3>
+        <div className="mt-6 border-t border-[rgb(72_0_66)] pt-6">
+          <h3 className="text-xl font-semibold mb-4 text-textWhite">Редагувати заявку #{editingId}</h3>
           <div className="grid gap-4">
             <div>
-              <label className="block text-sm font-medium mb-2">Ім'я</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">Ім'я</label>
               <input
                 type="text"
                 value={editedOrder.name}
                 onChange={(event) =>
                   setEditedOrder({ ...editedOrder, name: event.target.value })
                 }
-                className="w-full border rounded px-4 py-3"
+                className="w-full border border-[rgb(72_0_66)] rounded px-4 py-3 bg-formsBackground text-gray-300"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Телефон</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">Телефон</label>
               <input
                 type="tel"
                 value={editedOrder.phone}

@@ -15,13 +15,13 @@ function FormInput({
 }: FormInputProps) {
   return (
     <div className="flex flex-col gap-3 items-start">
-      <label htmlFor={inputId}>{inputLabel}</label>
+      <label htmlFor={inputId} className="text-textWhite">{inputLabel}</label>
       <input
         type={type}
         id={inputId}
         name={inputId}
         required={required}
-        className="py-4 px-6 bg-formsBackground border border-[#E6E6E6] w-[400px]"
+        className="py-4 px-6 bg-formsBackground border border-[rgb(72_0_66)] w-[400px] text-gray-300 placeholder-gray-500"
         placeholder={placeholder}
       />
     </div>
