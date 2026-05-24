@@ -88,7 +88,7 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
                   ID
                 </th>
                 <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">
-                  Ім'я
+                  {"Ім'я"}
                 </th>
                 <th className="px-4 py-3 text-left text-xs font-medium uppercase text-gray-400">
                   Телефон
