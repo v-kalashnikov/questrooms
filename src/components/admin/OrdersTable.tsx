@@ -183,7 +183,7 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
           <h3 className="text-xl font-semibold mb-4 text-textWhite">Редагувати заявку #{editingId}</h3>
           <div className="grid gap-4">
             <div>
-              <label className="block text-sm font-medium mb-2 text-gray-300">Ім'я</label>
+              <label className="block text-sm font-medium mb-2 text-gray-300">{"Ім'я"}</label>
               <input
                 type="text"
                 value={editedOrder.name}
