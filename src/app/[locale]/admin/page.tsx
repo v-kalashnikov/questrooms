@@ -7,6 +7,10 @@ import { getQuests } from "@/actions/getQuests";
 export default async function AdminPage() {
   const orders = await getOrders();
   const quests = await getQuests();
+  const formattedOrders = orders.map(order => ({
+    ...order,
+    scheduledAt: order.scheduledAt.toLocaleDateString('uk-UA'), 
+  }));
 
   return (
     <section className="container mx-auto py-[120px] px-12">
@@ -19,7 +23,7 @@ export default async function AdminPage() {
         <div className="space-y-12">
           <div className="space-y-6">
             <h2 className="text-2xl font-semibold">Замовлення</h2>
-            <OrdersTable orders={orders} />
+            <OrdersTable orders={formattedOrders} />
           </div>
 
           <div className="space-y-6">
