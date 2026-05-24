@@ -26,7 +26,7 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   const data: Quest[] = await getQuests();
-  return data.map((quest) => ({ id: `${quest.id} ` }));
+  return data.map((quest) => ({ id: `${quest.id}` }));
 }
 
 export default async function DetailedQuestPage({

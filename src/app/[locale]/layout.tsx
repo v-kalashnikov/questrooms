@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 const raleway = Raleway({ subsets: ["cyrillic"] });
 
 export const metadata: Metadata = {
-  title: "Escape Room",
+  title: "Quest Rooms",
   description: "Квести під будь який смак",
   icons: {
     icon: "/favicon.ico",
