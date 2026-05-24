@@ -20,8 +20,8 @@ function SignInForm() {
   const params = useParams();
   const locale = params?.locale ?? "uk";
 
-  const emailErrors = findErrors("email", state.message);
-  const passwordErrors = findErrors("password", state.message);
+const emailErrors = findErrors("email", state?.message ?? "");
+const passwordErrors = findErrors("password", state?.message ?? "");
 
   useEffect(() => {
     
