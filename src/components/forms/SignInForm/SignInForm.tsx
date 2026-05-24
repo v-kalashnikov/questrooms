@@ -64,7 +64,7 @@ const passwordErrors = findErrors("password", state?.message ?? "");
           <ErrorMessages errors={passwordErrors} />
         </div>
       </div>
-      <SubmitButton placeholder="Увійти" className="flex flex-col gap-8 mb-14 hover:text-brandMagenta bg-opacity-75" />
+      <SubmitButton placeholder="Увійти" />
       <p aria-live="polite" className="sr-only" role="status">
         {state?.message === "string" ? state.message : ""}
       </p>
