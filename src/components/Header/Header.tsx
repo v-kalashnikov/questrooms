@@ -43,8 +43,8 @@ async function Header({ locale }: HeaderProps) {
               <Image
                 src="/icons/logo.svg"
                 alt="Logo"
-                width={0}
-                height={0}
+                width={50}
+                height={50}
                 className="max-w-[60px] md:max-w-[100px] min-w-[50px] md:min-w-[60px] h-auto"
               />
               <span className="hidden md:inline text-white font-semibold text-lg">
