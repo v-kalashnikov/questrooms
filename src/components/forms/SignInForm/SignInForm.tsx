@@ -40,7 +40,7 @@ const passwordErrors = findErrors("password", state?.message ?? "");
 
   return (
     <form action={formAction}>
-      {state.success === false && <>{handleFormError(state.message)}</>}
+      {state?.success === false && <>{handleFormError(state?.message || "")}</>}
       <h3 className="font-bold text-xl mb-2 text-center">Увійти в акаунт</h3>
       <div className="flex flex-col gap-8 mb-14">
         <div>
@@ -66,7 +66,7 @@ const passwordErrors = findErrors("password", state?.message ?? "");
       </div>
       <SubmitButton placeholder="Увійти" className="flex flex-col gap-8 mb-14 hover:text-brandMagenta bg-opacity-75" />
       <p aria-live="polite" className="sr-only" role="status">
-        {state.message === "string" ? state.message : ""}
+        {state?.message === "string" ? state.message : ""}
       </p>
     </form>
   );
